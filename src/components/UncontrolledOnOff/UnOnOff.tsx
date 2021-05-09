@@ -4,11 +4,11 @@ import style from './UnOnOff.module.css';
 type ButtonType = {
     on: string
     off: string
-    setClickButton: (clickButton: boolean) => void
-    clickButton: boolean
 }
 
-function UnButton(props: ButtonType) {
+function OnOff(props: ButtonType) {
+
+    let [on, setOn] = useState(false)
 
     const onStyle = {
         width: '100px',
@@ -18,7 +18,7 @@ function UnButton(props: ButtonType) {
         justifyContent: 'center',
         alignItems: 'center',
         marginRight: '10px',
-        backgroundColor: props.clickButton ? 'green' : 'white'
+        backgroundColor: on ? 'green' : 'white'
     }
 
     const offStyle = {
@@ -29,7 +29,7 @@ function UnButton(props: ButtonType) {
         justifyContent: 'center',
         alignItems: 'center',
         marginRight: '10px',
-        backgroundColor: props.clickButton ? 'white' : 'red'
+        backgroundColor: on ? 'white' : 'red'
     }
 
     const indicatorStyle = {
@@ -37,17 +37,21 @@ function UnButton(props: ButtonType) {
         height: '50px',
         border: '1px solid black',
         borderRadius: '100%',
-        backgroundColor: props.clickButton ? 'green' : 'red'
+        backgroundColor: on ? 'green' : 'red'
     }
 
 
     return (
         <div className={style.block}>
-            <div style={onStyle} onClick={ () => {props.setClickButton(true)}}>{props.on}</div>
-            <div style={offStyle} onClick={ () => {props.setClickButton(false)}}>{props.off}</div>
+            <div style={onStyle} onClick={() => {
+                setOn(true)
+            }}>{props.on}</div>
+            <div style={offStyle} onClick={() => {
+                setOn(false)
+            }}>{props.off}</div>
             <div style={indicatorStyle}></div>
         </div>
     )
 }
 
-export default UnButton;
+export default OnOff;

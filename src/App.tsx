@@ -5,7 +5,10 @@ import UncontrolledAccordion from "./components/UncontrolledAccordion/Uncontroll
 import UncontrolledRating from "./components/UncontrolledRating/UncontrolledRating";
 import Rating, {RatingValueType} from "./components/Rating/Rating";
 import Accordion from "./components/Accordion/Accordion";
-import UnButton from "./components/UnOnOff/UnOnOff";
+import UnButton from "./components/UncontrolledOnOff/UnOnOff";
+import Accordion2 from "./components/Accordion/Accordion2";
+import OnOff from "./components/OnOff/OnOff";
+import UncontrolledOnOff from "./components/UncontrolledOnOff/UnOnOff";
 
 function App() {
 
@@ -16,14 +19,12 @@ function App() {
     return (
         <div className={'App'}>
             <Accordion title={'menu'} collapsed={accordionCollapsed} click={setAccordionCollapsed}/>
-            {/*<Accordion title={'list'} collapsed={false}/>*/}
-            {/*<Rating value={4}/>*/}
-            {/*<Rating value={rating} click={setRating}/>*/}
-            {/*<Button on={'on'} off={'off'}/>*/}
-            <UnButton on={'on'} off={'off'} clickButton={clickButton} setClickButton={setClickButton}/>
-            {/*<UncontrolledAccordion title={'menu'} />*/}
-            {/*<UncontrolledRating />*/}
-            {/*<UncontrolledAccordion title={'list'}/>*/}
+            <UncontrolledAccordion title={'menu'} />
+            {/*<Accordion2 title={'menu'} collapsed={accordionCollapsed} click={setAccordionCollapsed}/>*/}
+            <Rating value={rating} click={setRating}/>
+            <UncontrolledRating />
+            <OnOff on={'on'} off={'off'} boolean={clickButton} onClick={setClickButton}/>
+            <UncontrolledOnOff on={'on'} off={'off'}/>
         </div>
     );
 }
