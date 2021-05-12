@@ -8,7 +8,7 @@ type ButtonType = {
     boolean: boolean
 }
 
-function OnOff(props: ButtonType) {
+export function OnOff(props: ButtonType) {
 
     const onStyle = {
         width: '100px',
@@ -52,5 +52,3 @@ function OnOff(props: ButtonType) {
         </div>
     )
 }
-
-export default OnOff;

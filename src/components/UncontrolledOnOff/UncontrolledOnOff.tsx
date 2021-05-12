@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
-import style from './UnOnOff.module.css';
+import style from './UncontrolledOnOff.module.css';
 
 type ButtonType = {
     on: string
     off: string
+    defaultOn?: boolean
 }
 
-function OnOff(props: ButtonType) {
+export function UncontrolledOnOff(props: ButtonType) {
 
-    let [on, setOn] = useState(false)
+    let [on, setOn] = useState(props.defaultOn ? props.defaultOn : false)
 
     const onStyle = {
         width: '100px',
@@ -53,5 +54,3 @@ function OnOff(props: ButtonType) {
         </div>
     )
 }
-
-export default OnOff;
